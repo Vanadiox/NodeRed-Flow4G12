@@ -72,7 +72,7 @@ En esta cuarta práctica de NodeRED vamos a realizar una estación climatológic
 
     En general, debe verse así: 
 
-    ![Imagen 1]()
+    ![Imagen 1](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/1.png)
 
     Ahora, hay que agregar dos archivos más. El primero se llama **mosquitto.conf** y este se ubicará en
 
@@ -124,7 +124,7 @@ En esta cuarta práctica de NodeRED vamos a realizar una estación climatológic
     ~/DockerVolumes/MySQL/config/my.cnf
     ~~~
 
-    ![Imagen 2]()
+    ![Imagen 2](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/2.png)
 
     Ahora, hay que levantar de nuevo el archivo de compose.yam. Para ello, de nuevo vaya a 
 
@@ -144,41 +144,41 @@ En esta cuarta práctica de NodeRED vamos a realizar una estación climatológic
 
 Por ahora, cree un _flow_ nuevo, haciendo clic en el botón **+** 
 
-![Imagen 3]()
+![Imagen 3](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/3.png)
 
 Ahora hay que agregar:
 
 - Un módulo _mqtt in_
 
-![Imagen 4]()
+![Imagen 4](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/4.png)
 
 - Un módulo _json_
 
-![Imagen 5]()
+![Imagen 5](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/5.png)
 
 - Dos módulos _function_
 
-![Imagen 6]()
+![Imagen 6](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/6.png)
 
 - Dos módulos _gauge_
 
-![Imagen 7]()
+![Imagen 7](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/7.png)
 
 - Y un módulo _chart_
 
-![Imagen 8]()
+![Imagen 8](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/8.png)
 
 Ordénelos de la siguiente manera:
 
-![Imagen 9]()
+![Imagen 9](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/9.png)
 
 Y unalos como se muestra a continuación:
 
-![Imagen 10]()
+![Imagen 10](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/10.png)
 
 Ahora para configurar el módulo _mqtt in_ de doble clic sobre este y saldrá una ventana como esta: 
 
-![Imagen 11]()
+![Imagen 11](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/11.png)
 
 En el campo _Topic_ teclee lo siguiente:
 
@@ -194,11 +194,11 @@ mosquitto
 
 Del mismo modo, en el campo _server_. Se debe ver así: 
 
-![Imagen 12]()
+![Imagen 12](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/12.png)
 
 Luego, de clic en el botón rojo que dice _Update_. Será llevado a la ventana anterior y se debe ver así:
 
-![Imagen 13]()
+![Imagen 13](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/13.png)
 
 De click en _Done_. Para el módulo json, haga doble clic y en la pestaña _action_ seleccione 
 
@@ -206,7 +206,7 @@ De click en _Done_. Para el módulo json, haga doble clic y en la pestaña _acti
 Always convert to JavaScript Object. 
 ~~~
 
-![Imagen 14]()
+![Imagen 14](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/14.png)
 
 De clic en _Done_. Para los nodos de _function_ se realizará lo siguiente: En el primero, haga doble clic. En el campo _Name_ teclee "Temperatura". Y en la pestaña _On Message_ coloque lo siguiente: 
 
@@ -216,7 +216,7 @@ msg.topic = "Temperatura";
 return msg;
 ~~~
 
-![Imagen 15]()
+![Imagen 15](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/15.png)
 
 De clic en Done y en el otro nodo _function_, el _Name_ es "Humedad". En la pestaña _On Message_ meta esto:
 
@@ -226,19 +226,19 @@ msg.topic = "Humedad";
 return msg;
 ~~~
 
-![Imagen 16]()
+![Imagen 16](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/16.png)
 
 De clic en _Update_ y hasta aquí estará todo listo. Para los 3 nodos restantes hay que crear una pestaña nueva y 2 grupos. En la siguiente imágen se muestra dónde se encuentra la opción _dashboard_ para colocar dichos objetos. 
 
-![Imagen 17]()
+![Imagen 17](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/17.png)
 
 Una vez abierto el _dashboard_, añada una pestaña con el botón "**+ tab**" y una vez añadida la pestaña ponga el cursor sobre la pestaña y de clic en _edit_ para cambiar el nombre por "ClimaLocal". Ahora añada dos grupos con el botón "**+ group**". Cambie el nombre de ambos; uno de ellos se llamará "Indicadores" y el otro "Grafica". El producto final debe verse así: 
 
-![Imagen 18]()
+![Imagen 18](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/18.png)
 
 Ahora centre su atención en los últimos 3 nodos. 2 de ellos son del tipo _gauge_, los cuales estarán dentro del grupo indicadores. Para ello, de clic sobre uno de ellos. En el menú desplegable seleccione **[Clima local] Indicadores**.
 
-![Imagen 19]()
+![Imagen 19](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/19.png)
 
 En el campo _Label_ escriba: 
 
@@ -254,25 +254,25 @@ En _Units_ escriba:
 
 Como este nodo mostrará información relacionada a temperatura, los valores que se utilizarán serán de entre 10 a 40. Ya usted decidirá si desea esos valores. Para ello, en el apartado _Range_ escriba su valor mínimo y máximo. Luego seleccione sus colores, de nuevo, indicando un color para el, mínimo, medio y máximo. Y en _Sectors_, usted decidirá en qué valores se hace el cambio. En este ejemplo se utilizaron los valores 22 y 32. 
 
-![Imagen 20]()
+![Imagen 20](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/20.png)
 
 Haga clic en _Done_ para aceptar los cambios. Ahora haga lo mismo con el otro nodo _Gauge_. Recuerde, este otro nodo es para la humedad. Este valor va entre 0 a 100; no hay más, ya que es un valor universal. En la siguiente imágen se muestra cómo yo lo configuré. 
 
-![Imagen 21]()
+![Imagen 21](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/21.png)
 
 Por último, el nodo _chart_. Este nodo estará en el grupo "Grafica" y en _Label_ se llamará "Historico". Quedaría de la siguiente manera:
 
-![Imagen 22]()
+![Imagen 22](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/22.png)
 
 De clic en _Update_ y ya está listo para hacer el _Deploy_. Vaya a esta [dirección](http://localhost:1880/ui/) para ver sus gráficas. 
 
 - Nota: Si usted detuvo los _flows_ anteriores, el gráfico debería aparecer sin problemas. En caso de que usted no lo haya hecho, le aparecerán los _flows_ anteriores. Para poder visualizar su trabajo usted verá al lado izquierdo del nombre del flow un menú tipo hamburguesa. De clic ahí y seleccione el _flow_ que desea ver, en este caso es el _flow_ 4. 
 
-![Imagen 23]()
+![Imagen 23](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/23.png)
 
 Por el momento, se verá así: 
 
-![Imagen 24]()
+![Imagen 24](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/24.png)
 
 Ahora, hay que enviar un mensaje por medio de MQTT. Para ello vaya a la terminal de comandos e identifique cuál es el servidor de MQTT que usted tiene en ejecución. Para ello teclee 
 
@@ -299,13 +299,13 @@ docker exec -it 24d37aa0f028 mosquitto_pub -h localhost -t codigoIoT/mqtt/clima 
 
 Introduzca los valores correspondientes a su caso y de enter. Los valores se deberían reflejar en su gráfica: 
 
-![Imagen 25]()
+![Imagen 25](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/25.png)
 
 # Y LISTO
 
 Usted ha configurado una estación climatológica básica
 
-![Imagen 26]()
+![Imagen 26](https://raw.githubusercontent.com/Vanadiox/NodeRed-Flow4G12/main/imgs/26.png)
 
 ## Referencias: 
 
